@@ -1,0 +1,59 @@
+.container {
+  margin: 0 auto;
+  width: 1280px;
+}
+
+.headerStyle {
+  font-family: "Nunito Sans";
+  padding: 80px 0 40px 0;
+  color: #44456f;
+}
+
+.tittleStyle {
+  font-size: 36px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.fruitContainer {
+  display: grid;
+  grid-template-rows: 150px;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(3, 400px);
+  grid-gap: 40px;
+}
+.fruitCardContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+}
+.imagem {
+  width: 200px;
+  height: 150px;
+  background: linear-gradient(
+      180deg,
+      #b8b8b8 0%,
+      rgba(255, 248, 248, 0) 51.56%,
+      #bbbbbb 100%
+    ),
+    url("../assets/fruit.png") no-repeat center;
+  border-radius: 10px 0 0 10px;
+}
+
+.fruitDescriptionStyle {
+  width: 200px;
+  height: 150px;
+  background-color: #ececec;
+  border-radius: 0 10px 10px 0;
+}
+
+.textContainer {
+  font-family: "Nunito Sans";
+  color: #44456f;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 24px;
+  text-align: center;
+}
+.textContainer p {
+  padding: 8px 0;
+}
