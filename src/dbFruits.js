@@ -29,7 +29,7 @@ export const lychee = {
     price: 2.39,
 };
 export const raspberry = {
-    imgSrc: '../assets/raspberry.png',
+    imgSrc: '../assets/raspberry(1).png',
     name: 'Raspberry',
     quantity: 306,
     price: 1.85,

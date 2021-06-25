@@ -56,3 +56,48 @@
 .textContainer p {
   padding: 8px 0;
 }
+
+.buyList {
+  margin-top: 40px;
+  border-radius: 15px;
+  background-color: #ececec;
+}
+
+.headerBL {
+  padding-bottom: 54px;
+  display: grid;
+  grid-template-columns: repeat(4, 320px);
+  text-align: center;
+  font-family: "Nunito Sans";
+  font-size: 24px;
+  color: #44456f;
+  text-transform: capitalize;
+}
+.headerBL p {
+  padding: 24px 70px;
+}
+
+.cartContainer {
+  padding: 0 50px;
+}
+
+.productStyle {
+  font-weight: bold;
+  font-size: 24px;
+  font-family: "Nunito Sans";
+  color: #44456f;
+  padding: 32px 0;
+  border-top: 1px solid #44456f;
+}
+
+.footerBL {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 15px;
+  padding: 0 74px 30px;
+  font-weight: bold;
+  font-size: 32px;
+  font-family: "Nunito Sans";
+  color: #44456f;
+  background-color: #ececec;
+}
