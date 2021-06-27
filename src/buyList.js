@@ -1,4 +1,6 @@
 import { app } from "./main.js";
+import { banana, blueberry, dragonFruit, grapeFruit, lychee, raspberry } from "./dbFruits.js";
+import { fruitCard } from "./fruitContainer.js";
 
 const buyArea = document.createElement('div')
 
@@ -6,8 +8,7 @@ export function cartArea(){
     buyArea.classList.add('container')
     buyArea.classList.add('buyList')
     app.appendChild(buyArea)
-    header()
-    cartContainer()
+    header()   
     footer()
     
 }
@@ -18,7 +19,6 @@ function header(){
     const quantityPhrase = document.createElement('p')
     const pricePhrase = document.createElement('p')
     const totalPhrase = document.createElement('p')
-    
     namePhrase.innerText = 'name'
     quantityPhrase.innerText = 'quantity'
     pricePhrase.innerText = 'price $'
@@ -32,14 +32,29 @@ function header(){
     
 }
 
-function cartContainer (){
+export function cartContainer (fruit){
     const cartGeneral = document.createElement('div')
-    const productArea = document.createElement('div')   
+    const productArea = document.createElement('div')  
+    const fruitName = document.createElement('p')
+    const fruitQuantity = document.createElement('p')
+    const fruitPrice = document.createElement('p')
+    const fruitTotal = document.createElement('p')
+    
     cartGeneral.classList.add('cartContainer')
     productArea.classList.add('productStyle')
+    productArea.appendChild(fruitName)
+    productArea.appendChild(fruitQuantity)
+    productArea.appendChild(fruitPrice)
+    productArea.appendChild(fruitTotal)
+    
+
+   fruitName.innerText = fruit.name
+    fruitQuantity.innerText = fruit.quantity
+    fruitPrice.innerText = fruit.price
+    fruitTotal.innerText = fruit.quantity
     buyArea.appendChild(cartGeneral)
     cartGeneral.appendChild(productArea)
-  
+    
 }
 
 function footer () {

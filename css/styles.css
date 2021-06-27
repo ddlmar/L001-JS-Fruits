@@ -67,7 +67,6 @@
   padding-bottom: 54px;
   display: grid;
   grid-template-columns: repeat(4, 320px);
-  text-align: center;
   font-family: "Nunito Sans";
   font-size: 24px;
   color: #44456f;
@@ -82,6 +81,9 @@
 }
 
 .productStyle {
+  display: grid;
+  grid-template-columns: repeat(4, 295px);
+  column-gap: 25px;
   font-weight: bold;
   font-size: 24px;
   font-family: "Nunito Sans";
@@ -89,7 +91,9 @@
   padding: 32px 0;
   border-top: 1px solid #44456f;
 }
-
+.productStyle p {
+  padding: 0 0 0 20px;
+}
 .footerBL {
   display: grid;
   grid-template-columns: 1fr 1fr;

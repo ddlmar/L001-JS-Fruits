@@ -9,4 +9,5 @@ export function header(){
     tittle.innerText = 'fruit kart'
     app.appendChild(createdHeader)
     createdHeader.appendChild(tittle)
+    
 }
