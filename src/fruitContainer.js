@@ -1,9 +1,9 @@
 import { app } from "./main.js";
 import { banana, blueberry, dragonFruit, grapeFruit, lychee, raspberry } from "./dbFruits.js";
-import {cartContainer} from "./buyList.js"
+import {cartContainer, kart} from "./buyList.js"
 
 const fruitContent = document.createElement('div')
-
+let incremento = 0;
 export function fruitContainer(){
     
     app.appendChild(fruitContent)
@@ -17,6 +17,16 @@ export function fruitContainer(){
     fruitCard(raspberry)
     
 }
+
+/*function newElement(tag, classList = []) {
+    let element = document.createElement(tag);
+    if(classList.isArray()) {
+        classList.forEach( (className, index) => {
+            element.classList.add(className);
+        });
+    }
+    return element;
+} */
 
 export function fruitCard(fruit){
 
@@ -45,12 +55,39 @@ export function fruitCard(fruit){
     fruitDescription.classList.add('fruitDescriptionStyle')
     descriptionArea.classList.add('textContainer')
     
-    fruitArea.onclick = () => {        
-        if (fruit.quantity > 0) {
-            fruit.quantity -= 1;    
-        }
-        fruitQuantity.innerText = `Quantity: ${fruit.quantity}`
+    fruitArea.onclick = () => {            
+        
+    if (fruit.quantity > 0) {
+        fruit.quantity -= 1; 
+        
+    }
+    fruitQuantity.innerText = `Quantity: ${fruit.quantity}`
+    
+    if (!kart.includes(fruit)) {
         cartContainer(fruit)
-    };
+        kart.push(fruit)     
+    }
+   console.log(kart)
+    
+    /*for(let i = 0 ; i <= kart.length; i++){
+        if (kart.length <= 0 || kart[i].name !== fruit.name) {
+            kart.push({
+                name: fruit.name,
+                quantity: 1,
+                price: fruit.price,
+            })
+            console.log("entrou no primeiro if")
+        }else if (kart[i].name === fruit.name) {
+            console.log('entrou no segundo if')
+            if (fruit.quantity > 0) {
+                fruit.quantity -= 1;              
+                const index = kart.find(fruit.name)
+                kart[index].quantity++;
+            }
+        }
+    }
+        fruitQuantity.innerText = `Quantity: ${fruit.quantity}`
+        cartContainer(fruit)  */
+    }
     
 }

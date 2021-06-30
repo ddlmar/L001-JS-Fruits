@@ -3,14 +3,17 @@ import { banana, blueberry, dragonFruit, grapeFruit, lychee, raspberry } from ".
 import { fruitCard } from "./fruitContainer.js";
 
 const buyArea = document.createElement('div')
-
+export const area = document.createElement('div')
+area.classList.add('list') // trocar o nome 
+export let kart = [];
 export function cartArea(){
     buyArea.classList.add('container')
     buyArea.classList.add('buyList')
+   
     app.appendChild(buyArea)
     header()   
+    buyArea.appendChild(area)
     footer()
-    
 }
 
 function header(){
@@ -48,16 +51,20 @@ export function cartContainer (fruit){
     productArea.appendChild(fruitTotal)
     
 
-   fruitName.innerText = fruit.name
-    fruitQuantity.innerText = fruit.quantity
-    fruitPrice.innerText = fruit.price
-    fruitTotal.innerText = fruit.quantity
-    buyArea.appendChild(cartGeneral)
+    if (!kart.includes(fruit)) {
+        fruitName.innerText = fruit.name
+        fruitQuantity.innerText = fruit.quantity
+        fruitPrice.innerText = fruit.price
+        fruitTotal.innerText = fruit.quantity
+    }
+    
+    
+    area.appendChild(cartGeneral)
     cartGeneral.appendChild(productArea)
     
 }
 
-function footer () {
+export function footer () {
     const footerArea = document.createElement('div')
     const leftPhrase = document.createElement('p')
 
