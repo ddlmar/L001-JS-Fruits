@@ -3,7 +3,7 @@ import { banana, blueberry, dragonFruit, grapeFruit, lychee, raspberry } from ".
 import {cartContainer, kart} from "./buyList.js"
 
 const fruitContent = document.createElement('div')
-let incremento = 0;
+
 export function fruitContainer(){
     
     app.appendChild(fruitContent)
@@ -54,40 +54,48 @@ export function fruitCard(fruit){
     fruitImg.classList.add('image')
     fruitDescription.classList.add('fruitDescriptionStyle')
     descriptionArea.classList.add('textContainer')
-    
+
+    const numberOfFruits = fruit.quantity;
+    let trocandoValor;
     fruitArea.onclick = () => {            
-        
-    if (fruit.quantity > 0) {
-        fruit.quantity -= 1; 
-        
-    }
-    fruitQuantity.innerText = `Quantity: ${fruit.quantity}`
-    
-    if (!kart.includes(fruit)) {
+        if (fruit.quantity > 0) {
+            fruit.quantity -= 1; 
+                 
+        }
+        fruitQuantity.innerText = `Quantity: ${fruit.quantity}`
+        if (!kart.includes(fruit)) {
         cartContainer(fruit)
         kart.push(fruit)     
-    }
-   console.log(kart)
-    
-    /*for(let i = 0 ; i <= kart.length; i++){
-        if (kart.length <= 0 || kart[i].name !== fruit.name) {
-            kart.push({
-                name: fruit.name,
-                quantity: 1,
-                price: fruit.price,
-            })
-            console.log("entrou no primeiro if")
-        }else if (kart[i].name === fruit.name) {
-            console.log('entrou no segundo if')
-            if (fruit.quantity > 0) {
-                fruit.quantity -= 1;              
-                const index = kart.find(fruit.name)
-                kart[index].quantity++;
+        console.log('if de adicionar no card')
+        }
+        for(let index = 0 ; index < kart.length ; index++){
+        
+        if (kart[index].name === fruit.name) {
+            trocandoValor = numberOfFruits -kart[index].quantity;
+            console.log(trocandoValor)
+            
             }
         }
-    }
-        fruitQuantity.innerText = `Quantity: ${fruit.quantity}`
-        cartContainer(fruit)  */
+      
     }
     
+} 
+/*for(let i = 0 ; i <= kart.length; i++){
+    if (kart.length <= 0 || kart[i].name !== fruit.name) {
+        kart.push({
+            name: fruit.name,
+            quantity: 1,
+            price: fruit.price,
+        })
+        console.log("entrou no primeiro if")
+    }else if (kart[i].name === fruit.name) {
+        console.log('entrou no segundo if')
+        if (fruit.quantity > 0) {
+            fruit.quantity -= 1;              
+            const index = kart.find(fruit.name)
+            kart[index].quantity++;
+        }
+    }
 }
+    fruitQuantity.innerText = `Quantity: ${fruit.quantity}`
+    cartContainer(fruit)  */

@@ -1,10 +1,10 @@
 import { app } from "./main.js";
 import { banana, blueberry, dragonFruit, grapeFruit, lychee, raspberry } from "./dbFruits.js";
-import { fruitCard } from "./fruitContainer.js";
+import { fruitCard} from "./fruitContainer.js";
 
 const buyArea = document.createElement('div')
 export const area = document.createElement('div')
-area.classList.add('list') // trocar o nome 
+area.classList.add('list') 
 export let kart = [];
 export function cartArea(){
     buyArea.classList.add('container')
@@ -18,6 +18,7 @@ export function cartArea(){
 
 function header(){
     const headerArea = document.createElement('div')
+    const headerContainer = document.createElement('div')
     const namePhrase = document.createElement('p')
     const quantityPhrase = document.createElement('p')
     const pricePhrase = document.createElement('p')
@@ -27,11 +28,13 @@ function header(){
     pricePhrase.innerText = 'price $'
     totalPhrase.innerText = 'total'
     buyArea.appendChild(headerArea)
-    headerArea.appendChild(namePhrase)
-    headerArea.appendChild(quantityPhrase)
-    headerArea.appendChild(pricePhrase)
-    headerArea.appendChild(totalPhrase)
+    headerContainer.appendChild(namePhrase)
+    headerContainer.appendChild(quantityPhrase)
+    headerContainer.appendChild(pricePhrase)
+    headerContainer.appendChild(totalPhrase)
+    headerArea.appendChild(headerContainer)
     headerArea.classList.add('headerBL')
+    headerContainer.classList.add('headerContainer')
     
 }
 
@@ -50,7 +53,7 @@ export function cartContainer (fruit){
     productArea.appendChild(fruitPrice)
     productArea.appendChild(fruitTotal)
     
-
+    
     if (!kart.includes(fruit)) {
         fruitName.innerText = fruit.name
         fruitQuantity.innerText = fruit.quantity
@@ -67,9 +70,15 @@ export function cartContainer (fruit){
 export function footer () {
     const footerArea = document.createElement('div')
     const leftPhrase = document.createElement('p')
-
+    const rightPhrase = document.createElement('p')
+    const footerContainer = document.createElement('div')
     buyArea.appendChild(footerArea)
-    footerArea.appendChild(leftPhrase)
+    footerContainer.appendChild(leftPhrase)
+    footerContainer.appendChild(rightPhrase)
+    footerArea.appendChild(footerContainer)
     leftPhrase.innerText = 'Total:'
+    rightPhrase.innerText = '$ 30.00'
+    
     footerArea.classList.add('footerBL')
+    footerContainer.classList.add('footerContainer')
 }

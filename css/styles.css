@@ -64,16 +64,32 @@
 }
 
 .headerBL {
-  padding-bottom: 54px;
-  display: grid;
-  grid-template-columns: repeat(4, 320px);
   font-family: "Nunito Sans";
   font-size: 24px;
   color: #44456f;
   text-transform: capitalize;
 }
-.headerBL p {
-  padding: 24px 70px;
+
+.headerContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 295px);
+  padding: 24px 50px 54px 50px;
+}
+.headerContainer p:nth-child(1) {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.headerContainer p:nth-child(2) {
+  text-align: center;
+}
+
+.headerContainer p:nth-child(3) {
+  text-align: center;
+}
+.headerContainer p:nth-child(4) {
+  text-align: right;
+  padding-right: 20px;
 }
 
 .cartContainer {
@@ -83,7 +99,6 @@
 .productStyle {
   display: grid;
   grid-template-columns: repeat(4, 295px);
-  column-gap: 25px;
   font-weight: bold;
   font-size: 24px;
   font-family: "Nunito Sans";
@@ -91,17 +106,45 @@
   padding: 32px 0;
   border-top: 1px solid #44456f;
 }
-.productStyle p {
-  padding: 0 0 0 20px;
+.productStyle p:nth-child(1) {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.productStyle p:nth-child(2) {
+  text-align: center;
+}
+
+.productStyle p:nth-child(3) {
+  text-align: center;
+}
+.productStyle p:nth-child(4) {
+  text-align: right;
+  padding-right: 20px;
 }
 .footerBL {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   border-radius: 15px;
-  padding: 0 74px 30px;
   font-weight: bold;
   font-size: 32px;
   font-family: "Nunito Sans";
   color: #44456f;
   background-color: #ececec;
+}
+
+.footerContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 50px;
+  padding: 70px 0 30px 0;
+
+  border-top: 1px solid #44456f;
+}
+
+.footerContainer p:nth-child(1) {
+  text-align: left;
+  padding-left: 20px;
+}
+.footerContainer p:nth-child(2) {
+  text-align: right;
+  padding-right: 20px;
 }
