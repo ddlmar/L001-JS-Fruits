@@ -1,6 +1,6 @@
 import { app } from "./main.js";
 import { banana, blueberry, dragonFruit, grapeFruit, lychee, raspberry } from "./dbFruits.js";
-import {cartContainer, kart} from "./buyList.js"
+import {cartContainer, kart, vetor} from "./buyList.js"
 
 const fruitContent = document.createElement('div')
 
@@ -56,7 +56,7 @@ export function fruitCard(fruit){
     descriptionArea.classList.add('textContainer')
 
     const numberOfFruits = fruit.quantity;
-    let trocandoValor;
+    let nome;
     fruitArea.onclick = () => {            
         if (fruit.quantity > 0) {
             fruit.quantity -= 1; 
@@ -66,13 +66,28 @@ export function fruitCard(fruit){
         if (!kart.includes(fruit)) {
         cartContainer(fruit)
         kart.push(fruit)     
-        console.log('if de adicionar no card')
+        //console.log('if de adicionar no card')
         }
         for(let index = 0 ; index < kart.length ; index++){
         
-        if (kart[index].name === fruit.name) {
-            trocandoValor = numberOfFruits -kart[index].quantity;
-            console.log(trocandoValor)
+        if (kart[index].name === fruit.name) {           
+          
+                vetor.push({
+                    name: '',
+                    quantity: '',
+                    price: '',
+                    })  
+            
+            if (Object.is(vetor[index].name), fruit.name) {
+                        vetor[index].name = fruit.name;
+                        vetor[index].price = fruit.price;
+                        vetor[index].quantity = numberOfFruits -kart[index].quantity;
+                }
+                
+                //console.log(fruit.name)
+                //console.log(kart[index].name)
+
+                console.log(vetor)
             
             }
         }

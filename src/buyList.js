@@ -6,10 +6,11 @@ const buyArea = document.createElement('div')
 export const area = document.createElement('div')
 area.classList.add('list') 
 export let kart = [];
+export let vetor = [];  // deletar
+
 export function cartArea(){
     buyArea.classList.add('container')
     buyArea.classList.add('buyList')
-   
     app.appendChild(buyArea)
     header()   
     buyArea.appendChild(area)
@@ -60,7 +61,6 @@ export function cartContainer (fruit){
         fruitPrice.innerText = fruit.price
         fruitTotal.innerText = fruit.quantity
     }
-    
     
     area.appendChild(cartGeneral)
     cartGeneral.appendChild(productArea)
