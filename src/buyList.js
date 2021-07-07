@@ -6,7 +6,7 @@ const buyArea = document.createElement('div')
 export const area = document.createElement('div')
 area.classList.add('list') 
 export let kart = [];
-export let vetor = [];  // deletar
+
 
 export function cartArea(){
     buyArea.classList.add('container')

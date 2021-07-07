@@ -1,8 +1,12 @@
 import { app } from "./main.js";
 import { banana, blueberry, dragonFruit, grapeFruit, lychee, raspberry } from "./dbFruits.js";
-import {cartContainer, kart, vetor} from "./buyList.js"
+import {cartContainer, kart} from "./buyList.js"
 
 const fruitContent = document.createElement('div')
+
+let market = [banana, blueberry, grapeFruit, lychee, raspberry, dragonFruit];
+
+
 
 export function fruitContainer(){
     
@@ -55,46 +59,55 @@ export function fruitCard(fruit){
     fruitDescription.classList.add('fruitDescriptionStyle')
     descriptionArea.classList.add('textContainer')
 
-    const numberOfFruits = fruit.quantity;
-    let nome;
+    
+    
     fruitArea.onclick = () => {            
         if (fruit.quantity > 0) {
-            fruit.quantity -= 1; 
-                 
-        }
-        fruitQuantity.innerText = `Quantity: ${fruit.quantity}`
-        if (!kart.includes(fruit)) {
-        cartContainer(fruit)
-        kart.push(fruit)     
-        //console.log('if de adicionar no card')
-        }
-        for(let index = 0 ; index < kart.length ; index++){
-        
-        if (kart[index].name === fruit.name) {           
-          
-                vetor.push({
-                    name: '',
-                    quantity: '',
-                    price: '',
-                    })  
-            
-            if (Object.is(vetor[index].name), fruit.name) {
-                        vetor[index].name = fruit.name;
-                        vetor[index].price = fruit.price;
-                        vetor[index].quantity = numberOfFruits -kart[index].quantity;
+            fruit.quantity -= 1;    
+           /* market.forEach((item, index) => {
+                console.log(item.name + ' esta na posição: ' + index)
+                
+            } )
+            */
+            for (let index = 0; index < market.length; index++) {
+                if (market[index].name === fruit.name) {
+                    if (kart.length === 0) {
+                        kart.push({
+                            name: fruit.name,
+                            price: fruit.price,
+                            quantity: 1,
+                        })
+                        console.log('criou um')
+                    }else {
+                        let exists = false;
+                        for (let ii = 0; ii < kart.length; ii++) {
+                            
+                            if (kart[ii].name === fruit.name) {
+                                exists = true;
+                                kart[ii].quantity++;
+                                console.log(kart[ii].name)
+                                console.log(fruit.name)
+                                console.log('somou um')
+                            }                       
+                        }
+                         !exists && kart.push({
+                                name: fruit.name,
+                                price: fruit.price,
+                                quantity: 1,
+                            })  
+                        
+                    }
                 }
                 
-                //console.log(fruit.name)
-                //console.log(kart[index].name)
-
-                console.log(vetor)
-            
-            }
+            }              
         }
-      
-    }
-    
-} 
+        
+        
+        
+        console.log(kart)
+        fruitQuantity.innerText = `Quantity: ${fruit.quantity}`
+    } 
+}
 /*for(let i = 0 ; i <= kart.length; i++){
     if (kart.length <= 0 || kart[i].name !== fruit.name) {
         kart.push({
