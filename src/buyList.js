@@ -8,6 +8,7 @@ area.classList.add('list')
 export let kart = [];
 
 
+
 export function cartArea(){
     buyArea.classList.add('container')
     buyArea.classList.add('buyList')
@@ -39,46 +40,57 @@ function header(){
     
 }
 
-export function cartContainer (fruit){
-    const cartGeneral = document.createElement('div')
-    const productArea = document.createElement('div')  
-    const fruitName = document.createElement('p')
-    const fruitQuantity = document.createElement('p')
-    const fruitPrice = document.createElement('p')
-    const fruitTotal = document.createElement('p')
-    
-    cartGeneral.classList.add('cartContainer')
-    productArea.classList.add('productStyle')
-    productArea.appendChild(fruitName)
-    productArea.appendChild(fruitQuantity)
-    productArea.appendChild(fruitPrice)
-    productArea.appendChild(fruitTotal)
-    
-    
-    if (!kart.includes(fruit)) {
-        fruitName.innerText = fruit.name
-        fruitQuantity.innerText = fruit.quantity
-        fruitPrice.innerText = fruit.price
-        fruitTotal.innerText = fruit.quantity
-    }
-    
-    area.appendChild(cartGeneral)
-    cartGeneral.appendChild(productArea)
-    
+export function cartContainer (){
+    area.innerHTML = '';
+    if (kart.length > 0) {
+        kart.forEach((item) => {
+
+            const cartGeneral = document.createElement('div')
+            const productArea = document.createElement('div')  
+            const fruitName = document.createElement('p')
+            const fruitQuantity = document.createElement('p')
+            const fruitPrice = document.createElement('p')
+            const fruitTotal = document.createElement('p')
+            
+            fruitName.innerText = item.name;
+            fruitQuantity.innerText = item.quantity;
+            fruitPrice.innerText = item.price;
+            fruitTotal.innerText = (parseFloat(item.price) * parseFloat(item.quantity)).toFixed(2);
+            
+            productArea.appendChild(fruitName)
+            productArea.appendChild(fruitQuantity)
+            productArea.appendChild(fruitPrice)
+            productArea.appendChild(fruitTotal) 
+            cartGeneral.classList.add('cartContainer')
+            productArea.classList.add('productStyle')
+            area.appendChild(cartGeneral)    
+            cartGeneral.appendChild(productArea)
+            
+        });
+    } 
+   
 }
 
 export function footer () {
+
     const footerArea = document.createElement('div')
     const leftPhrase = document.createElement('p')
     const rightPhrase = document.createElement('p')
     const footerContainer = document.createElement('div')
+
+
+    
     buyArea.appendChild(footerArea)
     footerContainer.appendChild(leftPhrase)
     footerContainer.appendChild(rightPhrase)
     footerArea.appendChild(footerContainer)
     leftPhrase.innerText = 'Total:'
-    rightPhrase.innerText = '$ 30.00'
-    
+    rightPhrase.innerText = 'total';
+ 
     footerArea.classList.add('footerBL')
     footerContainer.classList.add('footerContainer')
+
+
+    
+    
 }

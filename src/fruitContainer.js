@@ -76,27 +76,30 @@ export function fruitCard(fruit){
                             name: fruit.name,
                             price: fruit.price,
                             quantity: 1,
-                        })
-                        console.log('criou um')
+                        })                    
                     }else {
+                        
                         let exists = false;
                         for (let ii = 0; ii < kart.length; ii++) {
                             
                             if (kart[ii].name === fruit.name) {
+                                
                                 exists = true;
                                 kart[ii].quantity++;
-                                console.log(kart[ii].name)
-                                console.log(fruit.name)
-                                console.log('somou um')
+                               
                             }                       
                         }
-                         !exists && kart.push({
+                         if(!exists){ 
+                            kart.push({
                                 name: fruit.name,
                                 price: fruit.price,
                                 quantity: 1,
-                            })  
+                            })
+                              
+                        }
                         
                     }
+                    cartContainer()
                 }
                 
             }              
@@ -104,7 +107,7 @@ export function fruitCard(fruit){
         
         
         
-        console.log(kart)
+        
         fruitQuantity.innerText = `Quantity: ${fruit.quantity}`
     } 
 }
