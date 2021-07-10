@@ -1,6 +1,6 @@
 import { app } from "./main.js";
 import { banana, blueberry, dragonFruit, grapeFruit, lychee, raspberry } from "./dbFruits.js";
-import {cartContainer, kart} from "./buyList.js"
+import {cartContainer, footer, kart} from "./buyList.js"
 
 const fruitContent = document.createElement('div')
 
@@ -60,7 +60,7 @@ export function fruitCard(fruit){
     descriptionArea.classList.add('textContainer')
 
     
-    
+   
     fruitArea.onclick = () => {            
         if (fruit.quantity > 0) {
             fruit.quantity -= 1;    
@@ -100,6 +100,8 @@ export function fruitCard(fruit){
                         
                     }
                     cartContainer()
+                    
+                    footer()
                 }
                 
             }              

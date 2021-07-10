@@ -25,6 +25,7 @@
 .fruitCardContainer {
   display: grid;
   grid-template-columns: repeat(2, 200px);
+  cursor: pointer;
 }
 .image {
   width: 200px;
