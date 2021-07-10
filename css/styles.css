@@ -56,3 +56,95 @@
 .textContainer p {
   padding: 8px 0;
 }
+
+.buyList {
+  margin-top: 40px;
+  border-radius: 15px;
+  background-color: #ececec;
+}
+
+.headerBL {
+  font-family: "Nunito Sans";
+  font-size: 24px;
+  color: #44456f;
+  text-transform: capitalize;
+}
+
+.headerContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 295px);
+  padding: 24px 50px 54px 50px;
+}
+.headerContainer p:nth-child(1) {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.headerContainer p:nth-child(2) {
+  text-align: center;
+}
+
+.headerContainer p:nth-child(3) {
+  text-align: center;
+}
+.headerContainer p:nth-child(4) {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.cartContainer {
+  padding: 0 50px;
+}
+
+.productStyle {
+  display: grid;
+  grid-template-columns: repeat(4, 295px);
+  font-weight: bold;
+  font-size: 24px;
+  font-family: "Nunito Sans";
+  color: #44456f;
+  padding: 32px 0;
+  border-top: 1px solid #44456f;
+}
+.productStyle p:nth-child(1) {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.productStyle p:nth-child(2) {
+  text-align: center;
+}
+
+.productStyle p:nth-child(3) {
+  text-align: center;
+}
+.productStyle p:nth-child(4) {
+  text-align: right;
+  padding-right: 20px;
+}
+.footerBL {
+  border-radius: 15px;
+  font-weight: bold;
+  font-size: 32px;
+  font-family: "Nunito Sans";
+  color: #44456f;
+  background-color: #ececec;
+}
+
+.footerContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 50px;
+  padding: 70px 0 30px 0;
+
+  border-top: 1px solid #44456f;
+}
+
+.footerContainer p:nth-child(1) {
+  text-align: left;
+  padding-left: 20px;
+}
+.footerContainer p:nth-child(2) {
+  text-align: right;
+  padding-right: 20px;
+}
