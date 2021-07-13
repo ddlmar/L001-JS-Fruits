@@ -76,19 +76,19 @@
   grid-template-columns: repeat(4, 295px);
   padding: 24px 50px 54px 50px;
 }
-.headerContainer p:nth-child(1) {
+.headerContainer .namePhrase {
   text-align: left;
   padding-left: 20px;
 }
 
-.headerContainer p:nth-child(2) {
+.headerContainer .quantityPhrase {
   text-align: center;
 }
 
-.headerContainer p:nth-child(3) {
+.headerContainer .pricePhrase {
   text-align: center;
 }
-.headerContainer p:nth-child(4) {
+.headerContainer .totalPhrase {
   text-align: right;
   padding-right: 20px;
 }
@@ -107,19 +107,19 @@
   padding: 32px 0;
   border-top: 1px solid #44456f;
 }
-.productStyle p:nth-child(1) {
+.productStyle .fruitName {
   text-align: left;
   padding-left: 20px;
 }
 
-.productStyle p:nth-child(2) {
+.productStyle .fruitQuantity {
   text-align: center;
 }
 
-.productStyle p:nth-child(3) {
+.productStyle .fruitPrice {
   text-align: center;
 }
-.productStyle p:nth-child(4) {
+.productStyle .fruitTotal {
   text-align: right;
   padding-right: 20px;
 }
@@ -141,11 +141,11 @@
   border-top: 1px solid #44456f;
 }
 
-.footerContainer p:nth-child(1) {
+.footerContainer .leftPhrase {
   text-align: left;
   padding-left: 20px;
 }
-.footerContainer p:nth-child(2) {
+.footerContainer .rightPhrase {
   text-align: right;
   padding-right: 20px;
 }

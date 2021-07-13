@@ -4,13 +4,15 @@ import { cartArea} from "./buyList.js";
 
 export const app = document.querySelector('#app');
 
+export function newElement(tag, className = null , value = null){
+    const newVar =  document.createElement(tag);
+    newVar.classList.add(className)
+    newVar.innerText = value;
+    
+    return newVar;
+}
+
 header()
 fruitContainer()
 cartArea()
 
-/*const fruitGrid = document.createElement('div')
-app.appendChild(fruitGrid)
-fruitGrid.classList.add('fruitContent')
-const attributeFruit = document.createAttribute('class')
-attributeFruit.value = 'fruitContent'
-*/

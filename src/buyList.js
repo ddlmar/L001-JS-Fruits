@@ -1,6 +1,5 @@
-import { app } from "./main.js";
-import { banana, blueberry, dragonFruit, grapeFruit, lychee, raspberry } from "./dbFruits.js";
-import { fruitCard, fruitContainer} from "./fruitContainer.js";
+import { app , newElement} from "./main.js";
+
 
 const buyArea = document.createElement('div')
 const area = document.createElement('div')
@@ -23,26 +22,20 @@ export function cartArea(){
 }
 
 function header(){
-    const headerArea = document.createElement('div')
-    const headerContainer = document.createElement('div')
-    const namePhrase = document.createElement('p')
-    const quantityPhrase = document.createElement('p')
-    const pricePhrase = document.createElement('p')
-    const totalPhrase = document.createElement('p')
-    namePhrase.innerText = 'name'
-    quantityPhrase.innerText = 'quantity'
-    pricePhrase.innerText = 'price $'
-    totalPhrase.innerText = 'total'
+    
+    const headerArea = newElement('div', 'headerBL')
+    const headerContainer = newElement('div', 'headerContainer') 
+    const namePhrase = newElement('p', 'namePhrase', 'name')
+    const quantityPhrase = newElement('p', 'quantityPhrase', 'quantity') 
+    const pricePhrase = newElement('p', 'pricePhrase', 'price $')
+    const totalPhrase = newElement('p', 'totalPhrase', 'total')
     buyArea.appendChild(headerArea)
     headerContainer.appendChild(namePhrase)
     headerContainer.appendChild(quantityPhrase)
     headerContainer.appendChild(pricePhrase)
     headerContainer.appendChild(totalPhrase)
     headerArea.appendChild(headerContainer)
-    headerArea.classList.add('headerBL')
-    headerContainer.classList.add('headerContainer')
-    
-    
+
 }
 
 export function cartContainer (){
@@ -50,50 +43,35 @@ export function cartContainer (){
     if (kart.length > 0) {
         kart.forEach((item) => {
 
-            const cartGeneral = document.createElement('div')
-            const productArea = document.createElement('div')  
-            const fruitName = document.createElement('p')
-            const fruitQuantity = document.createElement('p')
-            const fruitPrice = document.createElement('p')
-            const fruitTotal = document.createElement('p')
-            
-            fruitName.innerText = item.name;
-            fruitQuantity.innerText = item.quantity;
-            fruitPrice.innerText = item.price;
-            fruitTotal.innerText = (parseFloat(item.price) * parseFloat(item.quantity)).toFixed(2);
-            
+            const cartGeneral = newElement('div', 'cartContainer')            
+            const productArea = newElement('div', 'productStyle')         
+            const fruitName = newElement('p', 'fruitName', item.name)       
+            const fruitQuantity = newElement('p', 'fruitQuantity', item.quantity)     
+            const fruitPrice = newElement('p', 'fruitPrice', item.price)     
+            const fruitTotal = newElement('p', 'fruitTotal', (parseFloat(item.price) * parseFloat(item.quantity)).toFixed(2))        
             productArea.appendChild(fruitName)
             productArea.appendChild(fruitQuantity)
             productArea.appendChild(fruitPrice)
-            productArea.appendChild(fruitTotal) 
-            cartGeneral.classList.add('cartContainer')
-            productArea.classList.add('productStyle')
+            productArea.appendChild(fruitTotal)   
             area.appendChild(cartGeneral)    
-            cartGeneral.appendChild(productArea)
-            
+            cartGeneral.appendChild(productArea)      
             
         });
     }
-    
-   
+     
 }
 
 export function footer () {
-
-        
-        footerArea.innerHTML = ''; 
-        
-
-        const leftPhrase = document.createElement('p')
-        const rightPhrase = document.createElement('p')
-        const footerContainer = document.createElement('div')
+       
+        footerArea.innerHTML = '';  
+        const leftPhrase = newElement('p', 'leftPhrase', 'Total')
+        const rightPhrase = newElement('p', 'rightPhrase', '$ 0')
+        const footerContainer = newElement('div', 'footerContainer')
         buyArea.appendChild(footerArea)
         footerContainer.appendChild(leftPhrase)
         footerContainer.appendChild(rightPhrase)
         footerArea.appendChild(footerContainer)
-        leftPhrase.innerText = 'Total:'
-        rightPhrase.innerText = '$ 0';
-        footerContainer.classList.add('footerContainer')
+        
         let newValue = 0;
         kart.forEach((item) => {
             
@@ -103,20 +81,5 @@ export function footer () {
             leftPhrase.innerText = 'Total:'
             rightPhrase.innerText = `$ ${(newValue).toFixed(2)}`;
         })
-        
 
-        
-       
-        
-        
-
-        
-
-    
-    
-    
-
-
-    
-    
 }
