@@ -33,7 +33,7 @@ export function fruitCard(fruit){
 
     const fruitPrice = newElement('div', 'priceContainer')
     const fruitLeft = newElement('p', 'nameLeft' , 'Price: ')
-    const fruitRight = newElement('p', 'nameRight', fruit.price)
+    const fruitRight = newElement('p', 'nameRight', `$${fruit.price}`)
     const descriptionArea = newElement('div','textContainer') 
     const fruitPicture = newElement('img')
     const unityPhrase = newElement('p', 'unityPhrase', 'uni. 1')
@@ -94,6 +94,6 @@ export function fruitCard(fruit){
                 
             }              
         }   
-        quantityRight.innerText = fruit.quantity;
+        quantityRight.innerText = `${fruit.quantity}`;
     } 
 }

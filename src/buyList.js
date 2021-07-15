@@ -46,16 +46,46 @@ export function cartContainer (){
             const cartGeneral = newElement('div', 'cartContainer')            
             const productArea = newElement('div', 'productStyle')         
             const fruitName = newElement('p', 'fruitName', item.name)       
-            const fruitQuantity = newElement('p', 'fruitQuantity', item.quantity)     
+            const fruitQuantity = newElement('div', 'fruitQuantity')
+            const minusBtn = newElement('div', 'quantityBtn')
+            const quantityPhrase = newElement('p','quantityPhrase' , item.quantity)     
+            const plusBtn = newElement('div','quantityBtn')
+            const minusPhrase = newElement('p', 'minusPhrase', '-')
+            const plusPhrase = newElement('p', 'plusPhrase', '+')
+            
+            
+
             const fruitPrice = newElement('p', 'fruitPrice', item.price)     
             const fruitTotal = newElement('p', 'fruitTotal', (parseFloat(item.price) * parseFloat(item.quantity)).toFixed(2))        
             productArea.appendChild(fruitName)
             productArea.appendChild(fruitQuantity)
             productArea.appendChild(fruitPrice)
             productArea.appendChild(fruitTotal)   
+            fruitQuantity.appendChild(minusBtn)
+            fruitQuantity.appendChild(quantityPhrase)
+            fruitQuantity.appendChild(plusBtn)
+            minusBtn.appendChild(minusPhrase)
+            plusBtn.appendChild(plusPhrase)
             area.appendChild(cartGeneral)    
             cartGeneral.appendChild(productArea)      
+
+            minusBtn.onclick = () => {
+                if (item.quantity > 0) {
+                    item.quantity--;
+                    quantityPhrase.innerText = item.quantity;
+                    fruitTotal.innerText = (parseFloat(item.price) * parseFloat(item.quantity)).toFixed(2);
+                }
+            }
+
+            plusBtn.onclick = () => {
+                item.quantity++;
+                quantityPhrase.innerText = item.quantity;
+                fruitTotal.innerText = (parseFloat(item.price) * parseFloat(item.quantity)).toFixed(2);
+                
+
+            }
             
+
         });
     }
      

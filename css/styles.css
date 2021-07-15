@@ -133,6 +133,26 @@
   padding: 32px 0;
   border-top: 1px solid #44456f;
 }
+
+.fruitQuantity {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: 24px;
+  align-items: center;
+}
+
+.minusPhrase {
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.plusPhrase {
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 .productStyle .fruitName {
   text-align: left;
   padding-left: 20px;
