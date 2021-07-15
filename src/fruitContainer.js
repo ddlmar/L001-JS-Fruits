@@ -23,11 +23,20 @@ export function fruitCard(fruit){
     const fruitArea = newElement('div', 'fruitCardContainer') 
     const fruitImg = newElement('div', 'image')
     const fruitDescription = newElement('div' , 'fruitDescriptionStyle')  
-    const fruitName = newElement('p' , 'name' , `Name: ${fruit.name}`) 
-    const fruitQuantity = newElement('p', 'quantity', `Quantity: ${fruit.quantity}`)  
-    const fruitPrice = newElement('p', 'price', `Price: ${fruit.price}`)
+    const fruitName = newElement('div' , 'nameContainer') 
+    const nameLeft = newElement('p', 'nameLeft', 'Name: ')
+    const nameRight  = newElement('p', 'nameRight', `${fruit.name}`);
+   
+    const fruitQuantity = newElement('div', 'quantityContainer')  
+    const quantityLeft = newElement('p', 'nameLeft', 'Quantity: ')
+    const quantityRight = newElement('p', 'nameRight', fruit.quantity)
+
+    const fruitPrice = newElement('div', 'priceContainer')
+    const fruitLeft = newElement('p', 'nameLeft' , 'Price: ')
+    const fruitRight = newElement('p', 'nameRight', fruit.price)
     const descriptionArea = newElement('div','textContainer') 
     const fruitPicture = newElement('img')
+    const unityPhrase = newElement('p', 'unityPhrase', 'uni. 1')
     fruitContent.appendChild(fruitArea)
     fruitArea.appendChild(fruitImg)
     fruitArea.appendChild(fruitDescription)
@@ -36,9 +45,17 @@ export function fruitCard(fruit){
     descriptionArea.appendChild(fruitName)
     descriptionArea.appendChild(fruitQuantity)
     descriptionArea.appendChild(fruitPrice)
+    descriptionArea.appendChild(unityPhrase)
+    fruitName.appendChild(nameLeft)
+    fruitName.appendChild(nameRight)
+    fruitQuantity.appendChild(quantityLeft)
+    fruitQuantity.appendChild(quantityRight)
+    fruitPrice.appendChild(fruitLeft)
+    fruitPrice.appendChild(fruitRight)
     fruitPicture.setAttribute("src", fruit.imgSrc)
     
-    fruitArea.onclick = () => {            
+    fruitArea.onclick = () => {       
+         
         if (fruit.quantity > 0) {
             fruit.quantity -= 1;    
            
@@ -77,6 +94,6 @@ export function fruitCard(fruit){
                 
             }              
         }   
-        fruitQuantity.innerText = `Quantity: ${fruit.quantity}`
+        quantityRight.innerText = fruit.quantity;
     } 
 }

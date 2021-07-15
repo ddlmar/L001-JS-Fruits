@@ -54,10 +54,36 @@
   padding: 24px;
   text-align: right;
 }
-.textContainer p {
-  padding: 8px 0;
+
+.nameContainer {
+  display: grid;
+  grid-template-columns: auto auto;
 }
 
+.nameRight {
+  font-weight: normal;
+}
+.textContainer p,
+.name,
+.quantity,
+.price {
+  padding: 6px 0;
+}
+
+.textContainer .unityPhrase {
+  font-size: 10px;
+  color: #a1a1b7;
+}
+
+.quantityContainer {
+  display: grid;
+  grid-template-columns: auto 30px;
+}
+
+.priceContainer {
+  display: grid;
+  grid-template-columns: auto 30px;
+}
 .buyList {
   margin-top: 40px;
   border-radius: 15px;
