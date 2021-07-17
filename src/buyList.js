@@ -1,5 +1,6 @@
 import { app , newElement} from "./main.js";
-
+import {market} from "./dbFruits.js"
+import { fruitCard, renderCards } from "./fruitContainer.js";
 
 const buyArea = document.createElement('div')
 const area = document.createElement('div')
@@ -50,8 +51,8 @@ export function cartContainer (){
             const minusBtn = newElement('div', 'quantityBtn')
             const quantityPhrase = newElement('p','quantityPhrase' , item.quantity)     
             const plusBtn = newElement('div','quantityBtn')
-            const minusPhrase = newElement('p', 'minusPhrase', '-')
-            const plusPhrase = newElement('p', 'plusPhrase', '+')
+            const minusPhrase = newElement('span', 'minusPhrase', '-')
+            const plusPhrase = newElement('span', 'plusPhrase', '+')
             
             
 
@@ -74,6 +75,13 @@ export function cartContainer (){
                     item.quantity--;
                     quantityPhrase.innerText = item.quantity;
                     fruitTotal.innerText = (parseFloat(item.price) * parseFloat(item.quantity)).toFixed(2);
+                    market.forEach((itemMarket) => {
+                        if (itemMarket.name === item.name) {                           
+                            itemMarket.quantity++
+                            renderCards()
+                            renderTotal()
+                        }
+                    })
                 }
             }
 
@@ -81,7 +89,13 @@ export function cartContainer (){
                 item.quantity++;
                 quantityPhrase.innerText = item.quantity;
                 fruitTotal.innerText = (parseFloat(item.price) * parseFloat(item.quantity)).toFixed(2);
-                
+                market.forEach((itemMarket)=> {
+                    if (itemMarket.name === item.name) {
+                        itemMarket.quantity--
+                        renderCards()
+                        renderTotal()
+                    }
+                })
 
             }
             
@@ -90,12 +104,22 @@ export function cartContainer (){
     }
      
 }
+const rightPhrase = newElement('p', 'rightPhrase', '$ 0')
+
+function renderTotal (){
+    rightPhrase.innerHTML = '';
+    let newValue = 0;
+    kart.forEach((item)=> {
+        newValue += (item.quantity*item.price);
+        rightPhrase.innerText = `$ ${(newValue).toFixed(2)}`;
+    })
+}
 
 export function footer () {
        
         footerArea.innerHTML = '';  
         const leftPhrase = newElement('p', 'leftPhrase', 'Total')
-        const rightPhrase = newElement('p', 'rightPhrase', '$ 0')
+        
         const footerContainer = newElement('div', 'footerContainer')
         buyArea.appendChild(footerArea)
         footerContainer.appendChild(leftPhrase)
@@ -105,9 +129,7 @@ export function footer () {
         let newValue = 0;
         kart.forEach((item) => {
             
-            newValue += (item.quantity*item.price);
-
-            
+            newValue += (item.quantity*item.price);         
             leftPhrase.innerText = 'Total:'
             rightPhrase.innerText = `$ ${(newValue).toFixed(2)}`;
         })

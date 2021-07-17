@@ -9,15 +9,21 @@ export function fruitContainer(){
     app.appendChild(fruitContent)
     fruitContent.classList.add('container')
     fruitContent.classList.add('fruitContainer')
-    fruitCard(market[0])
+   /* fruitCard(market[0])
     fruitCard(market[1])
     fruitCard(market[2])
     fruitCard(market[3])
     fruitCard(market[4])
     fruitCard(market[5])
-    
+    */
+   renderCards()
 }
-
+export function renderCards() {
+    fruitContent.innerHTML = '';
+    market.forEach((item)=> {
+        fruitCard(item)
+    })
+}
 export function fruitCard(fruit){
 
     const fruitArea = newElement('div', 'fruitCardContainer') 
