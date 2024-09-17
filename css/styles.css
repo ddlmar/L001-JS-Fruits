@@ -25,17 +25,17 @@
 .fruitCardContainer {
   display: grid;
   grid-template-columns: repeat(2, 200px);
+  cursor: pointer;
 }
-.imagem {
+.image {
   width: 200px;
   height: 150px;
   background: linear-gradient(
-      180deg,
-      #b8b8b8 0%,
-      rgba(255, 248, 248, 0) 51.56%,
-      #bbbbbb 100%
-    ),
-    url("../assets/fruit.png") no-repeat center;
+    180deg,
+    #b8b8b8 0%,
+    rgba(255, 248, 248, 0) 51.56%,
+    #bbbbbb 100%
+  );
   border-radius: 10px 0 0 10px;
 }
 
@@ -52,8 +52,149 @@
   font-size: 14px;
   font-weight: bold;
   padding: 24px;
+  text-align: right;
+}
+
+.nameContainer {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.nameRight {
+  font-weight: normal;
+}
+.textContainer p,
+.name,
+.quantity,
+.price {
+  padding: 6px 0;
+}
+
+.textContainer .unityPhrase {
+  font-size: 10px;
+  color: #a1a1b7;
+}
+
+.quantityContainer {
+  display: grid;
+  grid-template-columns: auto 30px;
+}
+
+.priceContainer {
+  display: grid;
+  grid-template-columns: auto 30px;
+}
+.buyList {
+  margin-top: 40px;
+  border-radius: 15px;
+  background-color: #ececec;
+}
+
+.headerBL {
+  font-family: "Nunito Sans";
+  font-size: 24px;
+  color: #44456f;
+  text-transform: capitalize;
+}
+
+.headerContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 295px);
+  padding: 24px 50px 54px 50px;
+}
+.headerContainer .namePhrase {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.headerContainer .quantityPhrase {
   text-align: center;
 }
-.textContainer p {
-  padding: 8px 0;
+
+.headerContainer .pricePhrase {
+  text-align: center;
+}
+.headerContainer .totalPhrase {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.cartContainer {
+  padding: 0 50px;
+}
+
+.productStyle {
+  display: grid;
+  grid-template-columns: repeat(4, 295px);
+  font-weight: bold;
+  font-size: 24px;
+  font-family: "Nunito Sans";
+  color: #44456f;
+  padding: 32px 0;
+  border-top: 1px solid #44456f;
+}
+
+.fruitQuantity {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: 24px;
+  align-items: center;
+}
+
+.plusPhrase {
+  border-radius: 50%;
+  cursor: pointer;
+}
+.quantityBtn {
+  display: flex;
+  justify-self: center;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.productStyle .fruitName {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.productStyle .fruitQuantity {
+  text-align: center;
+}
+
+.productStyle .fruitPrice {
+  text-align: center;
+}
+.productStyle .fruitTotal {
+  text-align: right;
+  padding-right: 20px;
+}
+.footerBL {
+  border-radius: 15px;
+  font-weight: bold;
+  font-size: 32px;
+  font-family: "Nunito Sans";
+  color: #44456f;
+  background-color: #ececec;
+}
+
+.footerContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 50px;
+  padding: 70px 0 30px 0;
+
+  border-top: 1px solid #44456f;
+}
+
+.footerContainer .leftPhrase {
+  text-align: left;
+  padding-left: 20px;
+}
+.footerContainer .rightPhrase {
+  text-align: right;
+  padding-right: 20px;
 }

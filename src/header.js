@@ -1,12 +1,11 @@
-import { app } from "./main.js"
+import { app , newElement} from "./main.js"
 
 export function header(){
-    const createdHeader = document.createElement('div')
-    const tittle = document.createElement('h1')
-    createdHeader.classList.add('container')
-    createdHeader.classList.add('headerStyle')
-    tittle.classList.add('tittleStyle')
-    tittle.innerText = 'fruit kart'
+    
+    const createdHeader = newElement('div', 'container')
+    const tittle = newElement('h1', 'tittleStyle', 'fruit kart') 
+    createdHeader.classList.add('headerStyle')   
     app.appendChild(createdHeader)
     createdHeader.appendChild(tittle)
+    
 }
